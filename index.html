@@ -368,6 +368,7 @@ async function loadChart() {
     }).filter(p => p && p.y !== null);
 
     if (_chartInstance) _chartInstance.destroy();
+    document.getElementById('chart-section').classList.add('active');
     const ctx = document.getElementById('posChart').getContext('2d');
     _chartInstance = new Chart(ctx, {
       type: 'line',
