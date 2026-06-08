@@ -397,6 +397,7 @@ function resetUI() {
   document.getElementById('telem-section').classList.remove('active');
   document.getElementById('chart-section').classList.remove('active');
   document.getElementById('error-box').classList.remove('active');
+  if (_chartInstance) { _chartInstance.destroy(); _chartInstance = null;}
 }
 
 function showError(msg) {
@@ -509,7 +510,7 @@ async function runQuery() {
     document.getElementById('data-grid').classList.add('active');
     setLoader(false);
     log('Query complete.', 'ok');
-    loadChart();
+    
 
   } catch (err) {
     setLoader(false);
